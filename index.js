@@ -2,8 +2,14 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
+const Engineer = require("./lib/Engineer.js");
+const Manager = require("./lib/Manager");
+const Intern =  require("./lib/Intern");
+
+
+
 // Create an empty array list to store employee objects
-const employeeArray = () => {}
+const teamArray = [];
 //  Gather manager data
 
     // inquirer.prompt()
