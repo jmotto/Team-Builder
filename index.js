@@ -3,17 +3,17 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 // link to team profiles
-const Engineer = require("./lib/Engineer");
+const Engineer = require('./lib/Engineer');
 const Manager = require("./lib/Manager");
 const Intern =  require("./lib/Intern");
 
 
 
 // Create an empty array list to store employee objects
-const Employee = [];
+const teamArray = [];
 //  Gather manager data
-function ManagerData () {
-    inquirer.prompt ([
+const managerData = () => {
+    return inquirer.prompt ([
         {
             type: 'input',
             name: 'managerName',
@@ -67,8 +67,13 @@ function ManagerData () {
             }
         }
      // THEN Build a Manager object
-    ]).then(answers => {
+    ])
+    .then(answers => {
+        const { managerName, managerId, managerEmail, managerOffice } = answers;
         const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOffice);
+
+        teamArray.push(manager);
+        console.log(manager);
     });
 }
   
