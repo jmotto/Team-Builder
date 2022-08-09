@@ -14,7 +14,7 @@ const managerData = () => {
     return inquirer.prompt ([
         {
             type: 'input',
-            name: 'managerName',
+            name: 'name',
             message: 'Who is the manager?',
             validate: nameInput => {
                 if (nameInput) {
@@ -27,7 +27,7 @@ const managerData = () => {
         },
         {
             type: 'input',
-            name: 'managerId',
+            name: 'id',
             message: "What is the manager's ID number?",
             validate: idInput => {
                 if (idInput) {
@@ -40,7 +40,7 @@ const managerData = () => {
         }, 
         {
             type: 'input',
-            name: 'managerEmail',
+            name: 'email',
             message: "What is the manager's email address?",
             validate: emailInput => {
                 if (emailInput) {
@@ -53,7 +53,7 @@ const managerData = () => {
         },
         {
             type: 'input',
-            name: 'managerOffice',
+            name: 'office',
             message: "What is the manager's office number?",
             validate: email => {
                 if (email) {
@@ -67,8 +67,8 @@ const managerData = () => {
      // THEN Build a Manager object
     ])
     .then(answers => {
-        const {managerName, managerId, managerEmail, managerOffice } = answers;
-        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOffice);
+        const {name, id, email, office } = answers;
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
 
         teamArray.push(manager);
         console.log(manager);
@@ -138,7 +138,10 @@ const employeeData = () => {
             }
         },
         {
-
+            type: 'input',
+            name: 'school',
+            message: "Please enter the intern's school."
+    
         }
     ])
 }
