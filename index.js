@@ -8,7 +8,6 @@ const Manager = require("./lib/Manager");
 const Intern =  require("./lib/Intern");
 
 
-
 // Create an empty array list to store employee objects
 const teamArray = [];
 //  Gather manager data
