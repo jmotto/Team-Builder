@@ -186,13 +186,6 @@ const employeeData = () => {
     })
 }
 
-
-// Ask for which team member they want to add or "are they done"
-
-    // inquirer.prompt()
-
-    // THEN deciding which function to call 
-
 // Generate the HTML and write it to a file
 const writeFile = (data) => {
     fs.writeFile('./dist/index.html', data, err => {
