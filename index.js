@@ -4,8 +4,9 @@ const inquirer = require('inquirer');
 
 // link to team profiles
 const Engineer = require('./lib/Engineer');
-const Manager = require("./lib/Manager");
-const Intern =  require("./lib/Intern");
+const Manager = require('./lib/Manager');
+const Intern =  require('./lib/Intern');
+const Employee = require('./lib/Employee');
 
 // Create an empty array list to store employee objects
 const teamArray = [];
@@ -53,10 +54,10 @@ const managerData = () => {
         },
         {
             type: 'input',
-            name: 'office',
+            name: 'officeNumber',
             message: "What is the manager's office number?",
-            validate: email => {
-                if (email) {
+            validate: officeNumber => {
+                if (officeNumber) {
                     return true;
                 } else {
                     console.log ("Please enter manager's office number.");
@@ -66,13 +67,18 @@ const managerData = () => {
         }
      // THEN Build a Manager object
     ])
-    .then(answers => {
-        const {name, id, email, office } = answers;
-        const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
+    .then(managerInput =>{
+        const {name, id, email, officeNumber} = managerInput;
+        const manager = new Manager (name, id, email, officeNumber);
 
         teamArray.push(manager);
         console.log(manager);
-    });
+    }) 
+    // .then(answers => {
+    //     const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+
+   
+
 }
   
 
@@ -144,6 +150,8 @@ const employeeData = () => {
     
         }
     ])
+    
+
 }
 // Gather Engineer data
 
@@ -165,4 +173,26 @@ const employeeData = () => {
     // THEN deciding which function to call 
 
 // Generate the HTML and write it to a file
+const writeFile = (data) => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("You have successfully built your team!")
+        }
+    })
+};
 
+
+managerData()
+    .then(employeeData)
+    .then(teamArray => {
+        return generateHTML(teamArray);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    }) 
+    .catch((err)=>{
+    console.log(err);
+    });
