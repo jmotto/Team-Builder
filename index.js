@@ -2,6 +2,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
+const generateHTML = require('./src/generateHTML');
+
 // link to team profiles
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
@@ -12,6 +14,7 @@ const Employee = require('./lib/Employee');
 const teamArray = [];
 //  Gather manager data
 const managerData = () => {
+    // inquirer.prompt()
     return inquirer.prompt ([
         {
             type: 'input',
@@ -74,16 +77,12 @@ const managerData = () => {
         teamArray.push(manager);
         console.log(manager);
     }) 
-    // .then(answers => {
-    //     const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-
-   
-
 }
   
-
+// Gather Engineer and Intern data
 const employeeData = () => {
-
+    console.log(`Adding employees to the team`);
+    // inquirer.prompt()
     return inquirer.prompt ([
         {
             type: 'list',
@@ -134,6 +133,7 @@ const employeeData = () => {
             type: 'input',
             name: 'github',
             message: "What is the employee's GitHub username?",
+            when: (input) => input.role === "Engineer",
             validate: githubInput => {
                 if (githubInput) {
                     return true;
@@ -146,24 +146,45 @@ const employeeData = () => {
         {
             type: 'input',
             name: 'school',
-            message: "Please enter the intern's school."
-    
+            message: "Please enter the intern's school.",
+            when: (input) => input.role === "Intern",
+            validate: nameInput => {
+                if (nameInput){
+                    return true;
+                } else {
+                    console.log("Please enter the intern's school.")
+                }
+            }
+        },
+        {
+            type: 'confirm',
+            name: 'confirmEmployee',
+            message: "Would you like to add more team members?",
+            default: false
         }
     ])
-    
+    // Employee object
+    .then(employeeInput => {
+        let { name, id, email, role, github, school, confirmEmployee } = employeeInput;
+        let employee; 
 
+        if (role === "Engineer") {
+            employee = new Engineer (name, id, email, github);
+            console.log(employee);
+        } else if (role === "Intern") {
+            employee = new Intern (name, id, email, school);
+            console.log(employee);
+        }
+        
+        teamArray.push(employee);
+
+        if (confirmEmployee) {
+            return employeeData(teamArray);
+        } else {
+            return teamArray;
+        }
+    })
 }
-// Gather Engineer data
-
-    // inquirer.prompt()
-    
-    // THEN Build a Engineer object
-
-// Gather Intern data
-
-    // inquirer.prompt()
-
-    // THEN Build a Intern object
 
 
 // Ask for which team member they want to add or "are they done"
