@@ -44,7 +44,7 @@ const generateEngineer = function (engineer) {
 const generateIntern = function (intern) {
     return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
+        <div class="card h-100" style="width: 18rem;">
             <div class="card-header">
                 <h3>${intern.name}</h3>
                 <h4>Intern</h4><i class="material-icons">
@@ -108,6 +108,7 @@ const generateTeamProfile = function (employeeCards) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Builder</title>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 
         <link rel="stylesheet" href="style.css">
     </head>
@@ -118,13 +119,14 @@ const generateTeamProfile = function (employeeCards) {
           </nav>
       </header>
       <main>
-          <div class="container">
-              <div class="row justify-content-center" id="team-cards">
+          <div class="card container text-bg-danger p-3">
+              <div class="card row justify-content-center text-bg-info p-3" id="team-cards">
                   ${employeeCards}
               </div>
           </div>
       </main>
     </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     </html>
     `;
 };
