@@ -6,7 +6,7 @@ const generateManager = function (manager) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${manager.name}</h3>
-                <h4>Manager</h4><i class="material-icons">content_paste</i>
+                <h4>Manager</h4><i class="material-icons">
             </div>
 
             <div class="card-body">
@@ -26,7 +26,7 @@ const generateEngineer = function (engineer) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${engineer.name}</h3>
-                <h4>Engineer</h4><i class="material-icons">laptop_mac</i>
+                <h4>Engineer</h4><i class="material-icons">
             </div>
 
             <div class="card-body">
@@ -47,7 +47,7 @@ const generateIntern = function (intern) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${intern.name}</h3>
-                <h4>Intern</h4><i class="material-icons">assignment_ind</i>
+                <h4>Intern</h4><i class="material-icons">
             </div>
 
             <div class="card-body">
@@ -60,13 +60,43 @@ const generateIntern = function (intern) {
     `
 };
 
-
-
-
+// push array to page 
 generateHTML = (data) => {
     cardArray = [];
 
+    for (let i = 0; i < data.length; i++) {
+        const employee = data[i];
+        const role = employee.getRole(); 
+
+        // call manager function
+        if (role === 'Manager') {
+            const managerCard = generateManager(employee);
+
+            cardArray.push(managerCard);
+        }
+
+        // call engineer function
+        if (role === 'Engineer') {
+            const engineerCard = generateEngineer(employee);
+
+            cardArray.push(engineerCard);
+        }
+
+        // call intern function 
+        if (role === 'Intern') {
+            const internCard = generateIntern(employee);
+
+            cardArray.push(internCard);
+        }
+    }
+    // joining strings 
+    const employeeCards = cardArray.join('')
+
+    // return to generated page
+    const generateTeam = generateTeamProfile (employeeCards); 
+    return generateTeam;
 }
+
 // generate HTML file
 const generateTeamProfile = function (employeeCards) {
   return `
@@ -77,9 +107,23 @@ const generateTeamProfile = function (employeeCards) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Builder</title>
+
+
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        
+    <header>
+          <nav class="navbar" id="navbar">
+              <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
+          </nav>
+      </header>
+      <main>
+          <div class="container">
+              <div class="row justify-content-center" id="team-cards">
+                  ${employeeCards}
+              </div>
+          </div>
+      </main>
     </body>
     </html>
     `;
