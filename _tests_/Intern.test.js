@@ -7,7 +7,7 @@ describe("Intern", () => {
     const school = "University of Washington";
     const role = "Intern";
 
-    const testIntern = new Intern(name, id, email, school, role);
+    const testIntern = new Intern(name, id, email, school);
 
     it("should return Intern name", () => {
         
@@ -29,8 +29,4 @@ describe("Intern", () => {
         expect(testIntern.getSchool()).toBe(school);
     })
 
-    it("should return Intern role", () => {
-        
-        expect(testIntern.getRole()).toBe(role);
-    })
 });

@@ -1,6 +1,6 @@
 const Employee = require('../lib/Employee');
 
-describe("Gets", () => {
+describe("Employee", () => {
     // Arrange
     const name = "Jane Doe";
     const id = 123456;
@@ -12,19 +12,19 @@ describe("Gets", () => {
     
     it("should return the Employee name when requested" , () => {
         // Assert
-        expect(testEmployee.getName().toBe(name));
+        expect(testEmployee.getName()).toBe(name);
     });
 
     it("should return the Employee id when requested" , () => {
-        expect(testEmployee.getId().toBe(id));
+        expect(testEmployee.getId()).toBe(id);
     });
 
     it("should return the Employee email when requested" , () => {
-        expect(testEmployee.getEmail().toBe(email));
+        expect(testEmployee.getEmail()).toBe(email);
     });
 
     it("should return the Employee role when requested" , () => {
-        expect(testEmployee.getRole().toBe(role));
+        expect(testEmployee.getRole()).toBe(role);
     });
 
 });
