@@ -16,6 +16,7 @@
 
   ## Installation
   `npm install inquirer@8.2.4`
+  <br/>
   `npm install jest`
 
 
@@ -25,6 +26,12 @@
   `node index.js`
 
   Then answer the prompted questions about your team. 
+
+  View a walk through video [here](https://drive.google.com/file/d/13Y347qr6HZKibl2Fk6r-ZoXt0uNKYtyB/view).
+
+  ![sample team html](./assets/media/Screen%20Shot%202022-08-10%20at%206.12.37%20PM.png)
+
+
 
   ## License
   This application is licensed under [MIT]((https://opensource.org/licenses/MIT)). 
