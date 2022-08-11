@@ -55,7 +55,7 @@ const generateIntern = function (intern) {
                 <h4>Intern</h4>
             </div>
 
-            <div class="card"">
+            <div class="card">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item id">ID: ${intern.id}</li>
                     <li class="list-group-item email">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
