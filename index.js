@@ -98,7 +98,7 @@ const employeeData = () => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log ("Please enter the first and last name of the employee.");
+                    console.log ("Please enter the name of the employee.");
                     return false;
                 }
         }
