@@ -29,7 +29,7 @@
 
   View a walk through video [here](https://drive.google.com/file/d/13Y347qr6HZKibl2Fk6r-ZoXt0uNKYtyB/view).
 
-  ![sample team html](./assets/media/Screen%20Shot%202022-08-10%20at%206.12.37%20PM.png)
+  ![sample team html](assets/img/10-team-builder-img.png)
 
 
 
