@@ -5,8 +5,20 @@
 #navbar {
     background-color: rgb(2, 61, 2);
     color: white;
+   
 }
 
 #navbar-text {
     font-size: 40px;
+
+}
+
+.container {
+    justify-content: center;
+    display: flex;
+}
+
+.card-header {
+    background-color: rgb(14, 121, 214);
+    color: white;
 }
