@@ -4,7 +4,7 @@
  # Team Builder
 
   ## Description
-  This application builds a team profile using Node.js command-line to gather information about   employees  then gennerates an html page d.
+  The Team Builder application builds a team profile using Node.js command-line to gather information about   employees and then generates an html page that displays summaries of each person on your team. 
 
   ## Table of Contents
   * [Installation](#installation)
@@ -15,27 +15,27 @@
   * [Questions](#questions)
 
   ## Installation
-  npm i
+  `npm install inquirer@8.2.4`
+  `npm install jest`
+
 
   ## Usage
-  Use inquirer from the command line to answer the prompted questions about your team. 
+  To launch the application from the command-line, navigate to the project's root directory and run:
+
+  `node index.js`
+
+  Then answer the prompted questions about your team. 
 
   ## License
   This application is licensed under [MIT]((https://opensource.org/licenses/MIT)). 
-  <br/> Copyright &copy; 2022 
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  <br/> Copyright &copy; 2022 Jamie Otto
   
-  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-  
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 
   ## Contributors
   Jamie Otto
 
   ## Tests 
-  npm test
+  Run `npm test` in the command-line to test using [Jest](https://www.npmjs.com/package/jest).
 
   ## Questions
   If you have any questions about this project, please contact [jmotto31@gmail.com](mailto:jmotto31@gmail.com). To view more of my projects, go to [jmotto](https://github.com/jmotto).
