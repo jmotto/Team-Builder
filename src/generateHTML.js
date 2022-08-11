@@ -58,7 +58,7 @@ const generateIntern = function (intern) {
             <div class="card"">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item id">ID: ${intern.id}</li>
-                    <li class="list-group-item email">Email:<a href="mailto:${intern.email}">${intern.email}</a></li>
+                    <li class="list-group-item email">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
                     <li class="list-group-item school">School: ${intern.school}</li>
                 </ul>
             </div>
